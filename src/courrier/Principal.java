@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -48,10 +49,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        ExpediteurTxt = new javax.swing.JTextField();
+        ServiceDestinataireTxt = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ObjetTxt = new javax.swing.JTextArea();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -65,7 +66,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1193, 601));
         setMinimumSize(new java.awt.Dimension(1000, 599));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -115,9 +115,9 @@ public class Principal extends javax.swing.JFrame {
         }
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(13, 37, 980, 170);
+        jScrollPane1.setBounds(13, 37, 960, 170);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(13, 210, 420, 40);
+        jTextField1.setBounds(10, 210, 390, 40);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Objet", "Numéro", "Expéditeur", "Date", "Service Destinataire" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,11 +126,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(450, 210, 168, 40);
+        jComboBox1.setBounds(410, 210, 168, 40);
 
         jButton4.setText("Rechercher");
         jPanel2.add(jButton4);
-        jButton4.setBounds(630, 210, 171, 40);
+        jButton4.setBounds(590, 210, 171, 40);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,14 +152,20 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel2.add(jButton6);
         jButton6.setBounds(190, 260, 156, 40);
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(10, 340, 390, 50);
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(410, 340, 380, 50);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        ExpediteurTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExpediteurTxtActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ExpediteurTxt);
+        ExpediteurTxt.setBounds(10, 340, 390, 50);
+        jPanel2.add(ServiceDestinataireTxt);
+        ServiceDestinataireTxt.setBounds(410, 340, 380, 50);
+
+        ObjetTxt.setColumns(20);
+        ObjetTxt.setRows(5);
+        jScrollPane2.setViewportView(ObjetTxt);
 
         jPanel2.add(jScrollPane2);
         jScrollPane2.setBounds(10, 400, 780, 130);
@@ -173,13 +179,18 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton7);
-        jButton7.setBounds(810, 400, 180, 130);
+        jButton7.setBounds(800, 400, 170, 130);
 
         jButton8.setBackground(new java.awt.Color(255, 51, 0));
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Effacer");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton8);
-        jButton8.setBounds(810, 340, 180, 50);
+        jButton8.setBounds(800, 340, 170, 50);
 
         jButton9.setBackground(new java.awt.Color(153, 153, 153));
         jButton9.setText("Retourner au Menu");
@@ -189,7 +200,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton9);
-        jButton9.setBounds(810, 280, 180, 50);
+        jButton9.setBounds(800, 280, 170, 50);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fond1.png"))); // NOI18N
         jPanel2.add(jLabel5);
@@ -261,8 +272,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        jTable1.setModel(dt);
+        //jTable1.setModel(dt);
         System.out.println("Ouverture Pannel2 - Principal().Départs");
+        Afficher();
         jPanel1.setVisible(false);
         jPanel2.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -278,7 +290,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        if ("".equals(ExpediteurTxt.getText()) || "".equals(ServiceDestinataireTxt.getText()) || "".equals(ObjetTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Veuillez Remplir les champs SVP !");
+        } else {
+            insertDep();
+            Afficher();
+            ExpediteurTxt.setText("");
+            ServiceDestinataireTxt.setText("");
+            ObjetTxt.setText("");
+            //ObjetTxt.setText(""+dt.getValueAt(8,3));
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -297,13 +318,14 @@ public class Principal extends javax.swing.JFrame {
         dt = new DefaultTableModel();
 
         dt.addColumn("No");
-        dt.addColumn("Date");
         dt.addColumn("Expéditeur");
-        dt.addColumn("Objet");
         dt.addColumn("Service Destinataire");
+        dt.addColumn("Objet");
+        dt.addColumn("Date");
         dt.addColumn("Heure");
         jTable1.setModel(dt);
 
+        System.out.println("Ouverture Pannel1 - Principal().Menu.Initialisation");
         Afficher();
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
@@ -320,8 +342,18 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    public void Afficher() {
+    private void ExpediteurTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpediteurTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExpediteurTxtActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        ExpediteurTxt.setText("");
+        ServiceDestinataireTxt.setText("");
+        ObjetTxt.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    public void Afficher() {
         dt.setRowCount(0);
         String sql = "SELECT * FROM departs";
         try (
@@ -335,24 +367,26 @@ public class Principal extends javax.swing.JFrame {
                 String objet = rs.getString(4);
                 String dest = rs.getString(5);
                 String heure = rs.getString(6);
-                
+
                 Object[] clt = {no, date, exp, objet, dest, heure};
                 dt.addRow(clt);
             }
+            System.out.println("Ouverture Pannel1 - Principal().Départs.Afficher().Success");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-    //String name, double capacity
 
-    public void insert() {
+    //String name, double capacity
+//Insert New Depart
+    public void insertDep() {
         String sql = "INSERT INTO departs(id, objet, expediteur, destinataire, date, time) VALUES(NULL,?,?,?,date('now'),time('now'))";
 
         try (
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "test2");
-            pstmt.setString(2, "test2");
-            pstmt.setString(3, "test2");
+            pstmt.setString(1, ExpediteurTxt.getText());
+            pstmt.setString(2, ServiceDestinataireTxt.getText());
+            pstmt.setString(3, ObjetTxt.getText());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -395,6 +429,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ExpediteurTxt;
+    private javax.swing.JTextArea ObjetTxt;
+    private javax.swing.JTextField ServiceDestinataireTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -416,9 +453,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
