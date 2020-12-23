@@ -24,6 +24,7 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     DefaultTableModel dt;
+    DefaultTableModel dt1;
     Connection conn = new Connect().connect();
 
     public Principal() {
@@ -39,6 +40,24 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jTextField2 = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton11 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        ExpediteurTxt1 = new javax.swing.JTextField();
+        ServiceDestinataireTxt1 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ObjetTxt1 = new javax.swing.JTextArea();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -74,6 +93,139 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(null);
+
+        jPanel3.setVisible(false);
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setMaximumSize(new java.awt.Dimension(1193, 601));
+        jPanel3.setMinimumSize(new java.awt.Dimension(1000, 600));
+        jPanel3.setLayout(null);
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Arrivées");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(460, 0, 120, 40);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "No", "Date", "Expéditeur", "Objet", "Service Destinataire", "Heure"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(75);
+            jTable2.getColumnModel().getColumn(0).setMaxWidth(75);
+            jTable2.getColumnModel().getColumn(1).setPreferredWidth(160);
+            jTable2.getColumnModel().getColumn(1).setMaxWidth(160);
+        }
+
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(13, 37, 960, 170);
+        jPanel3.add(jTextField2);
+        jTextField2.setBounds(10, 210, 390, 40);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Objet", "Numéro", "Expéditeur", "Date", "Service Destinataire" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBox2);
+        jComboBox2.setBounds(410, 210, 168, 40);
+
+        jButton11.setText("Rechercher");
+        jPanel3.add(jButton11);
+        jButton11.setBounds(590, 210, 171, 40);
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Ajouter un nouvel enregistrement");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(440, 290, 360, 40);
+
+        jButton12.setText("Modifier");
+        jPanel3.add(jButton12);
+        jButton12.setBounds(10, 260, 159, 40);
+
+        jButton13.setBackground(new java.awt.Color(255, 51, 0));
+        jButton13.setForeground(new java.awt.Color(255, 255, 255));
+        jButton13.setText("Supprimer");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton13);
+        jButton13.setBounds(190, 260, 156, 40);
+
+        ExpediteurTxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExpediteurTxt1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(ExpediteurTxt1);
+        ExpediteurTxt1.setBounds(10, 340, 390, 50);
+        jPanel3.add(ServiceDestinataireTxt1);
+        ServiceDestinataireTxt1.setBounds(410, 340, 380, 50);
+
+        ObjetTxt1.setColumns(20);
+        ObjetTxt1.setRows(5);
+        jScrollPane4.setViewportView(ObjetTxt1);
+
+        jPanel3.add(jScrollPane4);
+        jScrollPane4.setBounds(10, 400, 780, 130);
+
+        jButton14.setBackground(new java.awt.Color(102, 153, 0));
+        jButton14.setForeground(new java.awt.Color(255, 255, 255));
+        jButton14.setText("Enregistrer");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton14);
+        jButton14.setBounds(800, 400, 170, 130);
+
+        jButton15.setBackground(new java.awt.Color(255, 51, 0));
+        jButton15.setForeground(new java.awt.Color(255, 255, 255));
+        jButton15.setText("Effacer");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton15);
+        jButton15.setBounds(800, 340, 170, 50);
+
+        jButton16.setBackground(new java.awt.Color(153, 153, 153));
+        jButton16.setText("Retourner au Menu");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton16);
+        jButton16.setBounds(800, 280, 170, 50);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fond1.png"))); // NOI18N
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(0, 0, 1000, 600);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 0, 1000, 600);
 
         jPanel2.setVisible(false);
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
@@ -116,6 +268,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(13, 37, 960, 170);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField1);
         jTextField1.setBounds(10, 210, 390, 40);
 
@@ -170,7 +328,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(jScrollPane2);
         jScrollPane2.setBounds(10, 400, 780, 130);
 
-        jButton7.setBackground(new java.awt.Color(153, 102, 0));
+        jButton7.setBackground(new java.awt.Color(102, 153, 0));
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Enregistrer");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -325,6 +483,16 @@ public class Principal extends javax.swing.JFrame {
         dt.addColumn("Heure");
         jTable1.setModel(dt);
 
+        dt1 = new DefaultTableModel();
+
+        dt1.addColumn("No");
+        dt1.addColumn("Expéditeur");
+        dt1.addColumn("Service Destinataire");
+        dt1.addColumn("Objet");
+        dt1.addColumn("Date");
+        dt1.addColumn("Heure");
+        jTable2.setModel(dt1);
+
         System.out.println("Ouverture Pannel1 - Principal().Menu.Initialisation");
         Afficher();
         // TODO add your handling code here:
@@ -339,6 +507,9 @@ public class Principal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         System.out.println("Ouverture Pannel3 - Principal().Arrivées");
+        Afficher();
+        jPanel1.setVisible(false);
+        jPanel3.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -353,9 +524,75 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+
+        int nselect = jTable2.getSelectedRow();
+        if(nselect == -1){
+        JOptionPane.showMessageDialog(null, "Veuillez selectionner la ligne à supprimer !");
+        }
+        else{
+        String tab1ST = "" +dt1.getValueAt(nselect, 0);
+        int  tabInt = Integer.parseInt(tab1ST);
+        
+        System.out.println(tabInt);
+            Supprimer("arrivees", tabInt);
+            Afficher();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void ExpediteurTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpediteurTxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExpediteurTxt1ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        if ("".equals(ExpediteurTxt1.getText()) || "".equals(ServiceDestinataireTxt1.getText()) || "".equals(ObjetTxt1.getText())) {
+            JOptionPane.showMessageDialog(null, "Veuillez Remplir les champs SVP !");
+        } else {
+            insertArr();
+            Afficher();
+            ExpediteurTxt1.setText("");
+            ServiceDestinataireTxt1.setText("");
+            ObjetTxt1.setText("");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+
+        System.out.println("Retour au Menu Pannel1 - Principal().Menu");
+        jPanel3.setVisible(false);
+        jPanel1.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+public void Supprimer(String table, int id){
+
+  
+        String sql = "UPDATE "+table+" SET supp =  1 WHERE id = "+id;
+
+        try (
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+   
+}
     public void Afficher() {
         dt.setRowCount(0);
-        String sql = "SELECT * FROM departs";
+        String sql = "SELECT * FROM departs where supp = 0";
         try (
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
@@ -375,6 +612,27 @@ public class Principal extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        dt1.setRowCount(0);
+        String sql1 = "SELECT * FROM arrivees where supp = 0";
+        try (
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql1)) {
+            // loop through the result set
+            while (rs.next()) {
+                int no = rs.getInt(1);
+                String date = rs.getString(2);
+                String exp = rs.getString(3);
+                String objet = rs.getString(4);
+                String dest = rs.getString(5);
+                String heure = rs.getString(6);
+
+                Object[] clt = {no, date, exp, objet, dest, heure};
+                dt1.addRow(clt);
+            }
+            System.out.println("Ouverture Pannel1 - Principal().Arrivées.Afficher().Success");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     //String name, double capacity
@@ -387,6 +645,20 @@ public class Principal extends javax.swing.JFrame {
             pstmt.setString(1, ExpediteurTxt.getText());
             pstmt.setString(2, ServiceDestinataireTxt.getText());
             pstmt.setString(3, ObjetTxt.getText());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void insertArr() {
+        String sql = "INSERT INTO arrivees(id, objet, expediteur, destinataire, date, time) VALUES(NULL,?,?,?,date('now'),time('now'))";
+
+        try (
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, ExpediteurTxt1.getText());
+            pstmt.setString(2, ServiceDestinataireTxt1.getText());
+            pstmt.setString(3, ObjetTxt1.getText());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -430,10 +702,19 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ExpediteurTxt;
+    private javax.swing.JTextField ExpediteurTxt1;
     private javax.swing.JTextArea ObjetTxt;
+    private javax.swing.JTextArea ObjetTxt1;
     private javax.swing.JTextField ServiceDestinataireTxt;
+    private javax.swing.JTextField ServiceDestinataireTxt1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -443,16 +724,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
