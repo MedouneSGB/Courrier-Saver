@@ -444,6 +444,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
+        int nselect = jTable1.getSelectedRow();
+        if(nselect == -1){
+        JOptionPane.showMessageDialog(null, "Veuillez selectionner la ligne à supprimer !");
+        }
+        else{
+        String tab1ST = "" +dt.getValueAt(nselect, 0);
+        int  tabInt = Integer.parseInt(tab1ST);
+        
+        System.out.println(tabInt);
+            Supprimer("departs", tabInt);
+            Afficher();
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
